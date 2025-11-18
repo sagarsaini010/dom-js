@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+button{
+    background-color: red;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    z-index: 20;
+}
+
+button:active{
+    scale: 0.95;
+}
