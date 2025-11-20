@@ -1,0 +1,64 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width:100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    padding: 30px;
+    height: 300px;
+    width: 600px;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.outer{
+    border-radius: 50px;
+    height: 40px;
+    width: 100%;
+    background-color: gray;
+}
+
+.inner{
+    height: 100%;
+    width: 0%;
+    background-color: green;
+    border-radius: 50px;
+}
+
+.lower{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button{
+    padding: 10px 15px;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 30px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+button:active{
+    scale: .98;
+}
