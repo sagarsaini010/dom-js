@@ -24,7 +24,6 @@ console.log(i)
 
 for(let j = 0; j<img.length;j++){
     img[j].addEventListener('dblclick',function(){
-    console.log('click hua')
     i[j].style.transform = 'translate(-50%,-50%) scale(1)'
     setTimeout(() => {
     i[j].style.top = -50+'%'
@@ -36,7 +35,6 @@ for(let j = 0; j<img.length;j++){
     i[j].style.top = 50+'%'
     i[j].style.rotate = 0+'deg'
     }, 1000);
-    console.log('click hua')
 })
 }
 

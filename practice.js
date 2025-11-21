@@ -1,5 +1,5 @@
-let now = Date.now()
+function greeting(){
+    console.log("hello bhai")
+}
 
-let date = new Date(now)
-
-console.log(date.toLocaleTimeString())
+console.log(greeting())
