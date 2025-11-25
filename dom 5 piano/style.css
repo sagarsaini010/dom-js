@@ -1,0 +1,52 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+main{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(165, 98, 98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pianoCard{
+width: 1000px;
+height: 250px;
+display: flex;
+flex-shrink: 0;
+
+}
+
+.pianoCard .white-btn{
+    position: relative;
+    height: 100%;
+    width: 5%;
+    border: 1px solid gray;
+    border-radius:0 0 10px 10px;
+    background-color: #fff;
+    box-shadow:0 3px 20px black;
+}
+.pianoCard .black-btn{
+    height: 60%;
+    width: 80%;
+    background-color: black;
+    border: 1px solid gray;
+    position: absolute;
+    z-index: 10;
+    top:0;
+    left: 60%;
+    border-radius: 0 0 10px 10px;
+}
+
+.btn{
+    transition: all ease .5s;
+}
