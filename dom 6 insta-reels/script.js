@@ -6,7 +6,7 @@ users = [
     shareCount: 30,
     caption: "Enjoying the sunset vibes 🌅✨",
     userImage: "https://randomuser.me/api/portraits/women/44.jpg",
-    video: "",
+    video: "./videos/video1.mp4",
     isFollow: false,
     isLike: false,
   },
@@ -17,7 +17,7 @@ users = [
     shareCount: 150,
     caption: "Exploring the mountains 🏔️🤍",
     userImage: "https://randomuser.me/api/portraits/men/32.jpg",
-    video: "",
+    video: "./videos/video2.mp4",
     isFollow: true,
     isLike: true,
   },
@@ -28,7 +28,7 @@ users = [
     shareCount: 60,
     caption: "Best street food ever 😋🔥",
     userImage: "https://randomuser.me/api/portraits/women/68.jpg",
-    video: "",
+    video: "./videos/video3.mp4",
     isFollow: false,
     isLike: false,
   },
@@ -39,7 +39,7 @@ users = [
     shareCount: 20,
     caption: "Coding all night 💻☕",
     userImage: "https://randomuser.me/api/portraits/men/15.jpg",
-    video: "",
+    video: "./videos/video4.mp4",
     isFollow: false,
     isLike: true,
   },
@@ -50,22 +50,27 @@ users = [
     shareCount: 90,
     caption: "New look ✨💄",
     userImage: "https://randomuser.me/api/portraits/women/12.jpg",
-    video: "",
+    video: "./videos/video5.mp4",
     isFollow: true,
     isLike: false,
   },
 ];
+
 let all_reels = document.querySelector(".all-reels");
-sum = "";
-users.forEach((element) => {
-  sum += `<div class="reel">
-               <img src="https://images.unsplash.com/photo-1763713512968-fef8805cc6cf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-               
+
+function showData() {
+  let sum = "";
+  users.forEach((element) => {
+    sum += `<div class="reel">
+               <video autoplay muted loop width="550px" src="${
+                 element.video
+               }"></video>
+
                <div class="bottom">
                 <div class="info">
                     <img src="${element.userImage}" alt="">
                     <h4>@${element.username}</h4>
-                    <button></button>
+                    <button class="f-button">Follow</button>
                 </div>
                 <div class="caption">
                     <p>${element.caption}</p>
@@ -73,7 +78,11 @@ users.forEach((element) => {
                </div>
                <div class="right">
                 <div class="like b">
-                    <div class="like-icon icon"><i class="ri-heart-3-line"></i></div>
+                    <div class="like-icon icon">${
+                      element.isLike
+                        ? `<i class="ri-heart-3-fill"></i>`
+                        : `<i class="ri-heart-3-line"></i>`
+                    }</div>
                     <div class="like-count">${element.likeCount}</div>
                 </div>
                 <div class="comment b">
@@ -89,25 +98,46 @@ users.forEach((element) => {
                 </div>
                </div>
             </div>`;
-});
+  });
 all_reels.innerHTML = sum;
+}
+showData();
+
 
 let btn = document.querySelectorAll("button");
-btn.forEach((elem,index)=>{
-if(users[index].isFollow){
-        elem.innerHTML = "Unfollow"  
-    }
-    else{
-        elem.innerHTML = "Follow"
-    }
+btn.forEach((elem, index) => {
+  elem.id = index;
+});
 
-    elem.addEventListener('click',()=>{
-    users[index].isFollow = !(users[index].isFollow)
-    if(users[index].isFollow){
-        elem.innerHTML = "Unfollow"  
+let like = document.querySelectorAll(".ri-heart-3-line");
+
+like.forEach((e, ind) => {
+  e.id = ind;
+});
+
+all_reels.addEventListener("click", (e) => {
+  if (e.target.className === "ri-heart-3-line" || e.target.className === "ri-heart-3-fill") {
+    if (
+      !users[e.target.id].isLike
+    ) {
+      users[e.target.id].likeCount++;
+      users[e.target.id].isLike = !users[e.target.id].isLike;
+    } else {
+      users[e.target.id].likeCount--;
+      users[e.target.id].isLike = !users[e.target.id].isLike;
     }
-    else{
-        elem.innerHTML = "Follow"
+    showData();
+  }
+   else if (e.target.className === "f-button") {
+    if (!users[e.target.id].isFollow) {
+      e.target.innerHTML = "Unfollow";
+      users[e.target.id].isFollow = !users[e.target.id].isFollow;
+    } else {
+      e.target.innerHTML = "Follow";
+      users[e.target.id].isFollow = !users[e.target.id].isFollow;
     }
-})
-})
+  }
+
+  // console.log(users[e.target.id].likeCount, users[e.target.id].isLike);
+  // console.log(users[e.target.id].isFollow, users[e.target.id].isFollow);
+});
