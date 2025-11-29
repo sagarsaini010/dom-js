@@ -23,23 +23,34 @@
     //     }
     // }
 // }
-
-
 // let newAdd = adding(1,2)
-
 // console.log(newAdd())
 // console.log(newAdd())
 // console.log(newAdd())
 
-let counter = (function () {
-  let count = 0; // private variable
-  return {
-    increment: () => ++count,
-    decrement: () => --count,
-    value: () => count
-  };
-})();
+// let counter = (function () {
+//   let count = 0; // private variable
+//   return {
+//     increment: () => ++count,
+//     decrement: () => --count,
+//     value: () => count
+//   };
+// })();
 
-console.log(counter.value());    // 0
-console.log(counter.increment()); // 1
-console.log(counter.decrement()); // 0
+// console.log(counter.value());    // 0
+// console.log(counter.increment()); // 1
+// console.log(counter.decrement()); // 0
+
+
+console.log('i am start')
+
+setTimeout(()=>{
+ console.log(('i am time out'))
+},1000)
+let sum = 0
+for(let i = 0; i < 3000000000;i++)
+  sum +=i
+
+console.log(sum)
+
+console.log('i am last')
